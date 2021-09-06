@@ -1,0 +1,53 @@
+@import '../../assets/sass/colors';
+
+@mixin flex-movie-list($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+.header {
+  padding: 0 20px;
+  @include flex-movie-list(space-between, center);
+  height: 100px;
+
+  .logo {
+    height: 30px;
+    @media only screen and (min-width: 480px) {
+      height: 70px;
+    }
+  }
+  .leftSection {
+    @include flex-movie-list(flex-start, center);
+    width: 75%;
+  }
+  .rightSection {
+    width: 25%;
+    @include flex-movie-list(flex-end, center);
+    .avatar {
+      color: $color-user-name;
+      font-size: 16px;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  li {
+    padding-left: 15px;
+    a {
+      color: $color-nav-item;
+      text-decoration: none;
+      font-size: 14px;
+      @media only screen and (min-width: 480px) {
+        font-size: 18px;
+      }
+      &.active {
+        color: $color-white;
+      }
+    }
+  }
+}

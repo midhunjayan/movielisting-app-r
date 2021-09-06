@@ -1,29 +1,22 @@
-import { useState, useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+
+import Home from './pages/Home';
+import MyLists from './pages/MyLists';
 
 function App() {
-  const [movies, setMovies] = useState(null);
-
-  useEffect(() => {
-    fetch('./movie-list.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data);
-      });
-  }, []);
-  return <div>
-    <ul>
-      {
-        movies?.slice(0, 20).map((m, index)=>{
-          return (
-            <li key={index}>
-              <span>{m.title}</span>
-              <img src={m.poster} alt="poster"/>
-            </li>
-          )
-        })
-      }
-    </ul>
-  </div>;
+  return (
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <Home />
+        </Route>
+        <Route path='/my-movie-list'>
+          <MyLists />
+        </Route>
+      </Switch>
+    </Layout>
+  );
 }
 
 export default App;
