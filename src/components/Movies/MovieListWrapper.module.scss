@@ -1,0 +1,41 @@
+@import '../../assets/sass/colors';
+
+.wrapper {
+  margin: 50px 0;
+  .rowHeaderTitle {
+    color: $color-nav-item;
+    font-size: 18px;
+  }
+}
+
+.container {
+  display: flex;
+  padding: 0 55px;
+  position: relative;
+  margin-top: 15px;
+
+  .item {
+    background: green;
+    text-align: center;
+    margin: 0 2px;
+    transition: transform 300ms ease 100ms;
+    height: 200px;
+    display: flex;
+    flex-grow: 1;
+    min-width: 130px;
+    width: 130px;
+
+    &:hover {
+      transform: scale(1.5) !important;
+      ~ .item {
+        transform: translateX(25%);
+      }
+    }
+  }
+
+  &:hover {
+    .item {
+      transform: translateX(-25%);
+    }
+  }
+}
