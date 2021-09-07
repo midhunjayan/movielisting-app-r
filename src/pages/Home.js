@@ -9,7 +9,7 @@ function Home() {
       .then((response) => response.json())
       .then((movieList) => {
         setMovieMasterData(movieList);
-        setGenre(['Action', 'Comedy']);
+        setGenre(['Action', 'Comedy', 'Thriller', 'Documentary', 'Horror']);
         setLoading(false);
       });
   };
@@ -27,7 +27,7 @@ function Home() {
           return (
             <MovieLisWrapper
               title={g}
-              movieList={findKeyFromData('genres', g, movieMasterData, 0, 100)}
+              movieList={findKeyFromData('genres', g, movieMasterData, 0, 250)}
               key={`${g}${index}`}
             />
           );
