@@ -8,11 +8,19 @@
   flex-grow: 1;
   min-width: 130px;
   width: 130px;
+  position: relative;
+
+  
 
   &:hover {
-    transform: scale(1.5) !important;
+    &:not(:first-child) {
+      transform: scale(2) !important;
+    }
+    &:first-child {
+      transform: scale(2) translateX(25%) !important ;
+    }
     ~ .item {
-      transform: translateX(25%);
+      transform: translateX(50%);
     }
   }
 }

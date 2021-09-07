@@ -16,7 +16,8 @@ function MovieLisWrapper(props) {
   const [itemProp, setItemProp] = useState({});
 
   useEffect(() => {
-    const containerWidth = listRef.current.getBoundingClientRect().width;
+    console.log(listRef.current.getBoundingClientRect());
+    const containerWidth = listRef.current.getBoundingClientRect().width - 50;
     const itemsPerPage = Math.floor(listRef.current.getBoundingClientRect().width / 130);
     const totalSlides = Math.floor(props?.movieList?.length / itemsPerPage);
     if (props.movieList?.length < itemsPerPage) {
@@ -32,7 +33,7 @@ function MovieLisWrapper(props) {
   }, [slideNumber]);
   // prev/next arrow click handler
   const handleClick = (direction) => {
-    let distance = listRef.current.getBoundingClientRect().x - 50;
+    let distance = listRef.current.getBoundingClientRect().x;
     if (direction === 'prev' && slideNumber > 0) {
       setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${itemProp.containerWidth + distance}px)`;

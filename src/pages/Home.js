@@ -9,7 +9,7 @@ function Home() {
       .then((response) => response.json())
       .then((movieList) => {
         setMovieMasterData(movieList);
-        setGenre(['Action', 'Comedy', 'Thriller', 'Documentary', 'Horror']);
+        setGenre(['Action', 'Comedy', 'Thriller', 'Documentary', 'Horror', 'Science Fiction', 'Drama']);
         setLoading(false);
       });
   };

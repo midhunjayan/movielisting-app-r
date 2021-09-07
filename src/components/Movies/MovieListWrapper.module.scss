@@ -2,6 +2,7 @@
 
 .wrapper {
   margin: 50px 0;
+  padding: 30px 0;
   position: relative;
   .rowHeaderTitle {
     color: $color-nav-item;
@@ -21,28 +22,11 @@
     width: max-content;
   }
 
-  .item {
-    background: green;
-    text-align: center;
-    margin: 0 2px;
-    transition: transform 300ms ease 100ms;
-    height: 200px;
-    display: flex;
-    flex-grow: 1;
-    min-width: 130px;
-    width: 130px;
-
-    &:hover {
-      transform: scale(1.5) !important;
-      ~ .item {
-        transform: translateX(25%);
-      }
-    }
-  }
-
   &:hover {
     .item {
-      transform: translateX(-25%);
+      &:not(:first-child) {
+        transform: translateX(-50%);
+      }
     }
   }
 }
