@@ -30,6 +30,7 @@ function MovieLisWrapper(props) {
       setHasPrevious(false);
     }
   }, [slideNumber]);
+  
   // prev/next arrow click handler
   const handleClick = (direction) => {
     let distance = listRef.current.getBoundingClientRect().x;

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import MovieLisWrapper from '../components/Movies/MovieListWrapper';
 function Home() {
   const [movieMasterData, setMovieMasterData] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [genre, setGenre] = useState([]);
   const getMovieData = () => {
-    fetch('movie-list.json')
+    fetch('http://localhost:3001/movies')
       .then((response) => response.json())
       .then((movieList) => {
         setMovieMasterData(movieList);
