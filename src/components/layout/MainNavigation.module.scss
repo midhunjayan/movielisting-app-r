@@ -10,6 +10,10 @@
   padding: 0 20px;
   @include flex-movie-list(space-between, center);
   height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 7;
+  background: #141414;
 
   .logo {
     height: 30px;

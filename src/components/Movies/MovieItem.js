@@ -4,7 +4,11 @@ import MovieDetails from './MovieDetails';
 import classes from './MovieItem.module.scss';
 function MovieItem(props) {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(props);
+
+  const findYear = (releaseDate) => {
+    const timeStamp = new Date(releaseDate * 1000);
+    return timeStamp.getFullYear();
+  };
   return (
     <div
       className={classes.item}
@@ -17,7 +21,8 @@ function MovieItem(props) {
           <MovieDetails
             title={props.details.title}
             genres={props.details.genres}
-            year={props.details.release_date}
+            overView={props.details.overview}
+            year={findYear(props.details.release_date)}
           ></MovieDetails>
         )}
       </Poster>

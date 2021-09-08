@@ -16,7 +16,6 @@ function MovieLisWrapper(props) {
   const [itemProp, setItemProp] = useState({});
 
   useEffect(() => {
-    console.log(listRef.current.getBoundingClientRect());
     const containerWidth = listRef.current.getBoundingClientRect().width - 50;
     const itemsPerPage = Math.floor(listRef.current.getBoundingClientRect().width / 130);
     const totalSlides = Math.floor(props?.movieList?.length / itemsPerPage);
