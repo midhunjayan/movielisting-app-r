@@ -1,0 +1,45 @@
+@import '../../assets/sass/colors';
+
+.slide-button {
+  
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+  outline: 0;
+  padding: 0;
+  z-index: 4;
+  height: 200px;
+  cursor: pointer;
+  display: none;
+
+  @media only screen and (min-width: 480px) {
+    position: absolute;
+    display: block;
+    margin-top: 40px;
+  }
+
+  span {
+    width: 25px;
+    color: $color-white;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &--next {
+    right: 0;
+
+    span {
+      transform: rotateZ(-90deg);
+    }
+  }
+
+  &--prev {
+    left: 0;
+
+    span {
+      transform: rotateZ(90deg);
+    }
+  }
+}

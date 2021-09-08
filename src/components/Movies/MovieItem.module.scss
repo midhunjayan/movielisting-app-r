@@ -1,0 +1,26 @@
+.item {
+  background: green;
+  text-align: center;
+  margin: 0 2px;
+  transition: transform 300ms ease 100ms;
+  height: 200px;
+  display: flex;
+  flex-grow: 1;
+  min-width: 130px;
+  width: 130px;
+  position: relative;
+
+  
+
+  &:hover {
+    &:not(:first-child) {
+      transform: scale(2) !important;
+    }
+    &:first-child {
+      transform: scale(2) translateX(25%) !important ;
+    }
+    ~ .item {
+      transform: translateX(50%);
+    }
+  }
+}
