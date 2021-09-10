@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png';
-
+import Counter from '../Counter';
 import classes from './MainNavigation.module.scss';
 
 function MainNavigation() {
@@ -18,6 +18,7 @@ function MainNavigation() {
             </li>
           </ul>
         </nav>
+        <Counter deadLineDate={'2021/09/16'}></Counter>
       </div>
       <div className={classes.rightSection}>
         <span className={classes.avatar}>John Doe</span>
