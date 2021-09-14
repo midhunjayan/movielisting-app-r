@@ -1,28 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { fetchMovies, getMovieData } from '../redux/movie/movieActions';
 import MovieLisWrapper from '../components/Movies/MovieListWrapper';
+
 function Home() {
-  const [movieMasterData, setMovieMasterData] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [genre, setGenre] = useState([]);
-  const getMovieData = () => {
-    fetch('movie-list.json')
-      .then((response) => response.json())
-      .then((movieList) => {
-        setMovieMasterData(movieList);
-        setGenre(['Action', 'Comedy', 'Thriller', 'Documentary', 'Horror', 'Science Fiction', 'Drama']);
-        setLoading(false);
-      });
-  };
+  // redux implementation
+  const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.movie.loading);
+  const movieMasterData = useSelector((state) => state.movie.movieMasterData);
+  const genre = useSelector((state) => state.genre.genreList);
+
   const findKeyFromData = (key, title, inputArray, startIndex, endIndex) => {
     const copyArray = [...inputArray.slice(startIndex, endIndex)];
     return copyArray.filter((item) => item[key]?.includes(title));
   };
   useEffect(() => {
-    getMovieData();
+    dispatch(fetchMovies());
+    dispatch(getMovieData());
   }, []);
   return (
     <>
-      {!isLoading &&
+      {!loading &&
         genre.map((g, index) => {
           return (
             <MovieLisWrapper
@@ -32,8 +32,9 @@ function Home() {
             />
           );
         })}
-      {isLoading && 'Loading .. . . .'}
+      {loading && 'Loading .. . . .'}
     </>
   );
 }
+
 export default Home;
