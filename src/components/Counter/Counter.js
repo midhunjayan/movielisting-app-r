@@ -35,10 +35,10 @@ function Counter({ deadLineDate }) {
 
   return (
     <div className={classes.wrapper}>
-      <CounterDisplay label="'Days'" value={countDown.days}></CounterDisplay>
-      <CounterDisplay label="'Hours'" value={countDown.hours}></CounterDisplay>
-      <CounterDisplay label="'Minutes'" value={countDown.minutes}></CounterDisplay>
-      <CounterDisplay label="'Seconds'" value={countDown.seconds}></CounterDisplay>
+      <CounterDisplay label="Days" value={countDown.days}></CounterDisplay>
+      <CounterDisplay label="Hours" value={countDown.hours}></CounterDisplay>
+      <CounterDisplay label="Minutes" value={countDown.minutes}></CounterDisplay>
+      <CounterDisplay label="Seconds" value={countDown.seconds}></CounterDisplay>
     </div>
   );
 }
